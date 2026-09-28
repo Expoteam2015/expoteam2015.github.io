@@ -283,7 +283,7 @@ header { background:var(--paper); border-bottom:1px solid var(--border); positio
 .footer-dots-inner {
   display: flex;
   width: max-content;
-  animation: dotsScroll 80s linear infinite;
+  animation: dotsScroll 45s linear infinite;
 }
 .footer-dots-inner:hover { animation-play-state: paused; }
 .footer-dots-unit { flex-shrink: 0; }
@@ -301,7 +301,7 @@ header { background:var(--paper); border-bottom:1px solid var(--border); positio
 
 @keyframes dotsScroll {
   0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  100% { transform: translateX(calc(-1 * var(--unit-w, 50%))); }
 }
 
 /* FOOTER */
@@ -462,6 +462,11 @@ footer { background:var(--footer-bg); color:rgba(255,255,255,0.5); padding:2.5re
 .dual-cell-staff .dual-cell-overlay a.apply-link:hover { background:#f7f5f0; }
 .dual-cell-staff .dual-cell-overlay a.apply-link:hover i { transform:translateX(3px); }
 @media (max-width:640px) { .dual-cell-staff .dual-cell-overlay { padding:1.5rem 1.5rem; } }
+
+/* ===== Philosophy スライドショー ===== */
+.philosophy-image .slideshow { position:absolute; inset:0; }
+.philosophy-image .slide img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.philosophy-image .slide-dots { z-index:3; bottom:1.25rem; }
 </style>
 </head>
 <body>
@@ -524,25 +529,13 @@ footer { background:var(--footer-bg); color:rgba(255,255,255,0.5); padding:2.5re
 
 <div class="hero-grid" role="region" aria-label="Welcome to Expo House">
   <div class="hero-cell hero-cell-main">
-    <div class="slideshow" id="heroSlideshow">
+    <div class="slideshow">
       <div class="slide active"><img src="/assets/img/daimonji-fire-festival-viewed-from-kyoto.jpg" alt="Daimonji fire festival viewed from Kyoto" loading="eager"></div>
-      <div class="slide"><img src="/assets/img/sunset-view-over-kyoto.jpg" alt="Sunset view over Kyoto" loading="lazy"></div>
-      <div class="slide"><img src="/assets/img/kyoto-panorama-from-mountain.jpg" alt="Kyoto panorama from mountain" loading="lazy"></div>
-      <div class="slide"><img src="/assets/img/plum-wine-making-event.jpg" alt="Plum wine making event" loading="lazy" style="object-position: center 20%;"></div>
-      <div class="slide"><img src="/assets/img/housemates-watching-kyoto-at-dusk.jpg" alt="Housemates watching Kyoto at dusk" loading="lazy"></div>
     </div>
     <div class="hero-overlay">
       <h1>WELCOME TO<br>EXPO HOUSE</h1>
       <p>An international share house in Nishijin, Kyoto — where housemates from around the world say "tadaima" and "okaeri."</p>
       <a href="#houses" class="btn-hero">See our houses <i class="ti ti-arrow-right"></i></a>
-    </div>
-    <!-- ドット -->
-    <div class="slide-dots" id="slideDots">
-      <button class="slide-dot active" data-index="0" aria-label="Slide 1"></button>
-      <button class="slide-dot" data-index="1" aria-label="Slide 2"></button>
-      <button class="slide-dot" data-index="2" aria-label="Slide 3"></button>
-      <button class="slide-dot" data-index="3" aria-label="Slide 4"></button>
-      <button class="slide-dot" data-index="4" aria-label="Slide 5"></button>
     </div>
     </div>
   <div class="hero-cell hero-cell-2 ken-burns">
@@ -586,7 +579,24 @@ footer { background:var(--footer-bg); color:rgba(255,255,255,0.5); padding:2.5re
     <p style="margin-top:1rem;">Centered in Nishijin, one of Kyoto's most lived-in neighborhoods, we aim to be a house with a face: where housemates greet each other coming home.</p>
   </div>
   <div class="philosophy-image">
-    <img src="/assets/img/housemates-waving-from-the-top-of-an-ivy-covered.jpg" alt="Housemates waving from the top of an ivy-covered wall under a blue sky" loading="lazy" style="object-fit:cover;object-position:center 40%;width:100%;height:100%;position:absolute;inset:0;">
+    <div class="slideshow" id="philoSlideshow">
+      <div class="slide active"><img src="/assets/img/housemates-waving-from-the-top-of-an-ivy-covered.jpg" alt="Housemates waving from the top of an ivy-covered wall under a blue sky" loading="lazy" style="object-position:center 40%;"></div>
+      <div class="slide"><img src="/assets/img/housemates-hiking-in-kyoto-forest.jpg" alt="Housemates looking out over Kyoto from a forest trail" loading="lazy" style="object-position:center 60%;"></div>
+      <div class="slide"><img src="/assets/img/housemates-watching-kyoto-at-dusk.jpg" alt="Housemates watching Kyoto at dusk" loading="lazy" style="object-position:center bottom;"></div>
+      <div class="slide"><img src="/assets/img/housemates-at-sunset-above-kyoto.jpg" alt="Housemates at sunset above the lights of Kyoto" loading="lazy" style="object-position:center 72%;"></div>
+      <div class="slide"><img src="/assets/img/sunset-view-over-kyoto.jpg" alt="Sunset view over Kyoto" loading="lazy" style="object-position:center;"></div>
+      <div class="slide"><img src="/assets/img/kyoto-panorama-from-mountain.jpg" alt="Kyoto panorama from a mountain hike" loading="lazy" style="object-position:center;"></div>
+      <div class="slide"><img src="/assets/img/plum-wine-making-event.jpg" alt="Housemates making plum wine together" loading="lazy" style="object-position:center 20%;"></div>
+    </div>
+    <div class="slide-dots" id="philoDots">
+      <button class="slide-dot active" data-index="0" aria-label="Photo 1"></button>
+      <button class="slide-dot" data-index="1" aria-label="Photo 2"></button>
+      <button class="slide-dot" data-index="2" aria-label="Photo 3"></button>
+      <button class="slide-dot" data-index="3" aria-label="Photo 4"></button>
+      <button class="slide-dot" data-index="4" aria-label="Photo 5"></button>
+      <button class="slide-dot" data-index="5" aria-label="Photo 6"></button>
+      <button class="slide-dot" data-index="6" aria-label="Photo 7"></button>
+    </div>
   </div>
 </div>
 
@@ -1536,36 +1546,44 @@ document.addEventListener('click', (e) => {
   }
 });
 
-const slideshow = document.getElementById('heroSlideshow');
-const slidesArr = Array.from(slideshow.querySelectorAll('.slide'));
-const dots = document.querySelectorAll('.slide-dot');
-let current = 0, timer;
-
-// ランダムスタート（毎回違う写真から始まる）
-const startIdx = Math.floor(Math.random() * slidesArr.length);
-if (startIdx > 0) {
-  slidesArr[0].classList.remove('active');
-  slidesArr[startIdx].classList.add('active');
-  dots[0].classList.remove('active');
-  dots[startIdx] && dots[startIdx].classList.add('active');
-  current = startIdx;
+// ===== Philosophy スライドショー（6秒自動・ランダムスタート・ドットで切替） =====
+function initSlideshow(root, dotWrap) {
+  if (!root) return;
+  const slides = Array.from(root.querySelectorAll('.slide'));
+  const dots = dotWrap ? Array.from(dotWrap.querySelectorAll('.slide-dot')) : [];
+  if (slides.length < 2) return;
+  let current = 0, timer;
+  function goTo(n) {
+    slides[current].classList.remove('active'); dots[current]?.classList.remove('active');
+    current = (n + slides.length) % slides.length;
+    slides[current].classList.add('active'); dots[current]?.classList.add('active');
+    const next = slides[(current + 1) % slides.length].querySelector('img');
+    if (next) next.loading = 'eager';
+  }
+  function startTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 6000); }
+  goTo(Math.floor(Math.random() * slides.length));
+  dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.index); startTimer(); }));
+  root.parentElement.addEventListener('mouseenter', () => clearInterval(timer));
+  root.parentElement.addEventListener('mouseleave', startTimer);
+  startTimer();
 }
-const slides = slidesArr;
+initSlideshow(document.getElementById('philoSlideshow'), document.getElementById('philoDots'));
 
-function goTo(n) {
-  slides[current].classList.remove('active');
-  dots[current].classList.remove('active');
-  current = (n + slides.length) % slides.length;
-  slides[current].classList.add('active');
-  dots[current].classList.add('active');
-}
-function startTimer() { clearInterval(timer); timer = setInterval(() => goTo(current + 1), 6000); }
-document.querySelector('.slide-next')?.addEventListener('click', () => { goTo(current + 1); startTimer(); });
-document.querySelector('.slide-prev')?.addEventListener('click', () => { goTo(current - 1); startTimer(); });
-dots.forEach(dot => dot.addEventListener('click', () => { goTo(+dot.dataset.index); startTimer(); }));
-slideshow.addEventListener('mouseenter', () => clearInterval(timer));
-slideshow.addEventListener('mouseleave', startTimer);
-startTimer();
+// ===== フッター上の水玉：画面幅に合わせて複製し、切れ目なく流す =====
+(function () {
+  const inner = document.querySelector('.footer-dots-inner');
+  if (!inner) return;
+  const unit = inner.querySelector('.footer-dots-unit');
+  function fill() {
+    const w = unit.getBoundingClientRect().width;
+    if (!w) return;
+    inner.style.setProperty('--unit-w', w + 'px');
+    const need = Math.ceil(window.innerWidth / w) + 1;
+    for (let i = inner.querySelectorAll('.footer-dots-unit').length; i < need; i++) inner.appendChild(unit.cloneNode(true));
+  }
+  fill();
+  window.addEventListener('resize', fill);
+})();
 </script>
 </body>
 </html>
