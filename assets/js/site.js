@@ -134,3 +134,26 @@ document.querySelectorAll('.house-filter').forEach(bar => {
     if (!ok) { e.preventDefault(); err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); } else err.hidden = true;
   });
 })();
+
+// ===== トップへ戻るボタン =====
+(function () {
+  const b = document.createElement('button');
+  b.className = 'to-top'; b.type = 'button';
+  b.setAttribute('aria-label', document.documentElement.lang === 'ja' ? 'ページの先頭へ戻る' : 'Back to top');
+  b.innerHTML = '<i class="ti ti-arrow-up"></i><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">↑</span>';
+  document.body.appendChild(b);
+  window.addEventListener('scroll', () => b.classList.toggle('show', window.scrollY > 600), { passive: true });
+  b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+})();
+
+// ===== 言語切替：クリックで開閉、カーソルが離れても少し残す =====
+document.querySelectorAll('.lang-wrap').forEach(w => {
+  const btn = w.querySelector('.lang-btn'); let t;
+  const open = () => { clearTimeout(t); w.classList.add('open'); };
+  const close = (delay) => { clearTimeout(t); t = setTimeout(() => w.classList.remove('open'), delay); };
+  w.addEventListener('mouseenter', open);
+  w.addEventListener('mouseleave', () => close(700));
+  btn.addEventListener('click', e => { e.preventDefault(); w.classList.contains('open') ? close(0) : open(); });
+  document.addEventListener('click', e => { if (!w.contains(e.target)) close(0); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(0); });
+});

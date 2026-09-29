@@ -39,7 +39,7 @@ header { background:var(--paper); border-bottom:1px solid var(--border); positio
 .lang-btn { display:flex; align-items:center; gap:0.3rem; padding:0.4rem 0.7rem; border:1.5px solid var(--border); border-radius:var(--r-btn); font-size:0.8rem; color:var(--ink-soft); background:var(--paper); cursor:pointer; transition:border-color 0.15s; }
 .lang-btn:hover { border-color:var(--green); color:var(--green); }
 .lang-dropdown { position:absolute; top:calc(100% + 6px); right:0; background:var(--paper); border:1.5px solid var(--border); border-radius:var(--r-card); padding:0.4rem 0; min-width:152px; box-shadow:0 8px 24px rgba(0,0,0,0.08); opacity:0; pointer-events:none; transform:translateY(-6px); transition:opacity 0.18s,transform 0.18s; z-index:100; }
-.lang-wrap:hover .lang-dropdown,.lang-wrap:focus-within .lang-dropdown { opacity:1; pointer-events:auto; transform:translateY(0); }
+.lang-wrap:focus-within .lang-dropdown { opacity:1; pointer-events:auto; transform:translateY(0); }
 .lang-dropdown a { display:flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem; font-size:0.85rem; color:var(--ink-soft); transition:background 0.12s,color 0.12s; }
 .lang-dropdown a:hover { background:var(--green-light); color:var(--green); }
 .lang-dropdown a.active { color:var(--green); font-weight:500; }
@@ -806,3 +806,27 @@ html:lang(ja) body { font-family:'DM Sans','Hiragino Sans','Hiragino Kaku Gothic
 html:lang(ja) h1, html:lang(ja) h2, html:lang(ja) h3, html:lang(ja) .facts-price, html:lang(ja) legend, html:lang(ja) blockquote p { font-family:'DM Serif Display','Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif; }
 html:lang(ja) .hero-overlay h1 { font-family:'DM Serif Display',serif; }
 html:lang(ja) p { word-break:normal; overflow-wrap:anywhere; line-break:strict; }
+.apply-cta { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:2rem; background:var(--green-light); border-radius:var(--r-card); padding:1.1rem 1.4rem; }
+.apply-cta p { font-size:0.95rem; color:var(--ink-soft); }
+.apply-cta strong { color:var(--green-dark); font-weight:500; margin-right:0.3rem; }
+.apply-cta .facts-cta { width:auto; display:inline-flex; padding:0.7rem 1.5rem; }
+.area-map img, .area-map-figure img, .about-map img { background:#fff; }
+.apply-cta { display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap; margin-top:2rem; background:var(--green-light); border-radius:var(--r-card); padding:1.1rem 1.4rem; }
+.apply-cta p { font-size:0.95rem; color:var(--ink-soft); }
+.apply-cta strong { color:var(--green-dark); font-weight:500; margin-right:0.3rem; }
+.apply-cta .facts-cta { width:auto; display:inline-flex; padding:0.7rem 1.5rem; }
+.area-map img, .area-map-figure img, .about-map img { background:#fff; }
+
+/* ===== ヒーロー文字の読みやすさ ===== */
+.hero-overlay { background:linear-gradient(to top,rgba(0,0,0,0.72) 0%,rgba(0,0,0,0.35) 45%,rgba(0,0,0,0.08) 75%,transparent 100%), radial-gradient(ellipse 70% 60% at 20% 75%,rgba(0,0,0,0.35) 0%,transparent 70%); }
+.hero-overlay h1, .hero-overlay p { text-shadow:0 1px 12px rgba(0,0,0,0.45); }
+
+/* ===== トップへ戻るボタン ===== */
+.to-top { position:fixed; right:1.25rem; bottom:1.25rem; width:44px; height:44px; border-radius:50%; border:1px solid var(--border); background:rgba(255,255,255,0.95); color:var(--green-dark); display:flex; align-items:center; justify-content:center; font-size:1.2rem; cursor:pointer; box-shadow:0 4px 16px rgba(26,26,24,0.12); opacity:0; pointer-events:none; transform:translateY(8px); transition:opacity 0.25s, transform 0.25s, bottom 0.25s; z-index:400; }
+.to-top.show { opacity:1; pointer-events:auto; transform:translateY(0); }
+.to-top:hover { background:var(--green); color:#fff; border-color:var(--green); }
+@media (max-width:960px) { .to-top { bottom:88px; right:1rem; width:40px; height:40px; } }
+
+/* ===== 言語切替：クリックでも開閉・少し残る ===== */
+.lang-wrap.open .lang-dropdown { opacity:1; pointer-events:auto; transform:translateY(0); }
+.lang-dropdown::before { content:''; position:absolute; left:0; right:0; top:-10px; height:10px; }
