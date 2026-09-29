@@ -885,3 +885,41 @@ html:lang(zh) .philosophy h2 { font-family:'DM Serif Display','Hiragino Mincho P
 .about-hero h1 .jp-pair { display:block; }
 .about-hero h1 .jp-pair + .jp-pair { margin-top:0.45em; }
 .about-hero h1 .jp-pair .jp { margin-bottom:0.2rem; font-family:'Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif; }
+
+/* ===== 中文TOPのみ（[data-zh-hero] [data-zh-dual] .top-cta-wrap など、中国語TOPだけにある属性・クラスに限定） ===== */
+.hero-grid[data-zh-hero] { grid-template-rows:minmax(280px,auto) minmax(240px,auto); }
+[data-zh-hero] .hero-cell-main .slideshow { position:absolute; inset:0; }
+[data-zh-hero] .hero-cell-main .hero-overlay { position:relative; inset:auto; min-height:100%; padding:2.25rem 2rem 2.5rem; }
+[data-zh-hero] .hero-overlay a { pointer-events:auto; }
+[data-zh-hero] .hero-brand { font-family:'DM Serif Display',serif; font-size:clamp(0.85rem,1.3vw,1rem); letter-spacing:0.12em; color:rgba(255,255,255,0.8); margin-bottom:0.4rem; }
+[data-zh-hero] .hero-overlay h1 { font-family:'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif; font-weight:600; font-size:clamp(1.5rem,2.6vw,2.15rem); line-height:1.35; padding-top:0; margin-bottom:0.75rem; }
+[data-zh-hero] .hero-overlay p { max-width:40ch; margin-bottom:0.85rem; }
+[data-zh-hero] .hero-facts { list-style:none; display:flex; flex-wrap:wrap; gap:0.4rem; margin:0 0 0.7rem; padding:0; }
+[data-zh-hero] .hero-facts li { background:rgba(255,255,255,0.16); border:1px solid rgba(255,255,255,0.5); color:#fff; border-radius:99px; padding:0.22rem 0.7rem; font-size:0.8rem; line-height:1.5; }
+[data-zh-hero] .hero-overlay p.hero-note { font-size:0.78rem; color:rgba(255,255,255,0.82); margin-bottom:1.1rem; }
+[data-zh-hero] .hero-note a { color:#fff; text-decoration:underline; text-underline-offset:2px; }
+[data-zh-hero] .hero-btns { display:flex; flex-wrap:wrap; gap:0.6rem; }
+[data-zh-hero] .btn-hero-primary { background:#c4600a; border-color:#c4600a; }
+[data-zh-hero] .btn-hero-primary:hover { background:#a95208; }
+.house-rent { font-size:0.85rem; font-weight:600; color:var(--green); margin:-0.4rem 0 0.8rem; }
+.stay-grid.stay-grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.houses-section-area { padding-top:0; }
+[data-zh-dual] .dual-cell { height:auto; min-height:320px; }
+[data-zh-dual] .dual-cell-overlay { position:relative; inset:auto; min-height:320px; z-index:2; }
+[data-zh-dual] .dual-cell-staff .dual-cell-overlay h3 { font-size:clamp(1.3rem,2vw,1.65rem); line-height:1.35; }
+[data-zh-dual] .dual-cell-staff .dual-cell-overlay p { max-width:40ch; margin-bottom:0.8rem; }
+[data-zh-dual] .dual-cell-staff .dual-cell-overlay p.dual-note { font-size:0.78rem; color:rgba(255,255,255,0.7); margin-bottom:1.2rem; }
+[data-zh-dual] .dual-cell:not(.dual-cell-staff) .dual-cell-overlay p { max-width:36ch; line-height:1.65; }
+.top-cta-wrap { padding-top:0; }
+[data-zh-philo] .text-link { color:#f2c08f; }
+[data-zh-philo] .text-link:hover { color:#fff; }
+@media (max-width:960px) {
+  .hero-grid[data-zh-hero] { grid-template-rows:minmax(340px,auto) minmax(150px,auto) minmax(150px,auto); }
+  .stay-grid.stay-grid-3 { grid-template-columns:1fr; }
+}
+@media (max-width:640px) {
+  .hero-grid[data-zh-hero] { grid-template-rows:auto 180px minmax(140px,auto) minmax(140px,auto); }
+  [data-zh-hero] .hero-cell-main .hero-overlay { min-height:min(120vw,480px); padding:2.5rem 1.5rem 2.75rem; }
+  [data-zh-hero] .hero-overlay h1 { font-size:clamp(1.45rem,6.4vw,1.8rem); }
+  [data-zh-dual] .dual-cell, [data-zh-dual] .dual-cell-overlay { min-height:260px; }
+}
