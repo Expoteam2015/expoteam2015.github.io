@@ -90,6 +90,7 @@ document.querySelectorAll('.house-filter').forEach(bar => {
   if (house) { const cb = form.querySelector(`input[data-house="${house}"]`); if (cb) cb.checked = true; }
   const note = document.getElementById('womenNote');
   const updateNote = () => {
+    if (!note) return;
     const male = form.querySelector('input[name="field_5218233"][value="0"]').checked;
     const women = [...form.querySelectorAll('input[data-house]')].some(c => c.checked && ['tate','halu','fuji'].includes(c.dataset.house));
     if (note) note.hidden = !(male && women);
@@ -99,14 +100,36 @@ document.querySelectorAll('.house-filter').forEach(bar => {
     let ok = true;
     form.querySelectorAll('.invalid, .invalid-group').forEach(el => el.classList.remove('invalid', 'invalid-group'));
     form.querySelectorAll('input[required]:not([type=radio]), select[required], textarea[required]').forEach(el => {
-      const bad = !el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));
+      const bad = (el.type === 'file' ? !el.files.length : !el.value.trim()) || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));
       if (bad) { el.classList.add('invalid'); ok = false; }
     });
-    ['field_5218233', 'field_5248192', 'field_5248123'].forEach(n => {
+    const groups = form.dataset.requiredGroups ? form.dataset.requiredGroups.split(',') : ['field_5218233', 'field_5248192', 'field_5248123'];
+    groups.forEach(n => {
       if (!form.querySelector(`input[name="${n}"]:checked`)) { form.querySelector(`input[name="${n}"]`).closest('.chips').classList.add('invalid-group'); ok = false; }
     });
     const err = document.getElementById('formError');
     if (!ok) { e.preventDefault(); err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
     else err.hidden = true;
+  });
+})();
+
+// ===== スタッフ応募フォーム：ファイル名表示・必須チェック =====
+(function () {
+  const form = document.getElementById('staffForm');
+  if (!form) return;
+  const file = form.querySelector('input[type=file]');
+  const label = form.querySelector('.file-name');
+  file.addEventListener('change', () => { label.innerHTML = '<i class="ti ti-paperclip"></i> ' + (file.files[0] ? file.files[0].name : 'Choose a file'); });
+  form.addEventListener('submit', e => {
+    let ok = true;
+    form.querySelectorAll('.invalid, .invalid-group').forEach(el => el.classList.remove('invalid', 'invalid-group'));
+    form.querySelectorAll('input[required]:not([type=radio]):not([type=file]), select[required]').forEach(el => {
+      const bad = !el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value)) || (el.name === 'field_5278038_y' && !/^\d{4}$/.test(el.value));
+      if (bad) { el.classList.add('invalid'); ok = false; }
+    });
+    if (!form.querySelector('input[name="field_5278037"]:checked')) { form.querySelector('input[name="field_5278037"]').closest('.chips').classList.add('invalid-group'); ok = false; }
+    if (!file.files.length) { file.closest('.file-drop').classList.add('invalid'); ok = false; }
+    const err = document.getElementById('staffError');
+    if (!ok) { e.preventDefault(); err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); } else err.hidden = true;
   });
 })();
