@@ -70,3 +70,14 @@ document.querySelectorAll('[data-gallery]').forEach(g => {
     setTimeout(() => { main.src = img.src; main.alt = img.alt; main.style.opacity = 1; }, 150);
   }));
 });
+
+// ===== ハウス一覧：Mixed / Women only の絞り込み =====
+document.querySelectorAll('.house-filter').forEach(bar => {
+  const btns = bar.querySelectorAll('button');
+  const cards = document.querySelectorAll('.house-card-lg');
+  btns.forEach(b => b.addEventListener('click', () => {
+    btns.forEach(x => { x.classList.toggle('active', x === b); x.setAttribute('aria-selected', x === b); });
+    const f = b.dataset.filter;
+    cards.forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.type !== f));
+  }));
+});
