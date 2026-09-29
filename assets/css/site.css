@@ -800,3 +800,9 @@ footer { background:var(--footer-bg); color:rgba(255,255,255,0.5); padding:2.5re
 .job-tiles { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:0.5rem; max-width:500px; margin-top:2.5rem; }
 .job-tiles img { width:100%; height:auto; aspect-ratio:1; object-fit:cover; border-radius:10px; }
 @media (max-width:640px) { .job-tiles { gap:0.35rem; margin-top:2rem; } .job-tiles img { border-radius:8px; } }
+
+/* ===== 日本語ページのフォント ===== */
+html:lang(ja) body { font-family:'DM Sans','Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP','Yu Gothic','YuGothic',Meiryo,sans-serif; line-height:1.85; }
+html:lang(ja) h1, html:lang(ja) h2, html:lang(ja) h3, html:lang(ja) .facts-price, html:lang(ja) legend, html:lang(ja) blockquote p { font-family:'DM Serif Display','Hiragino Mincho ProN','Yu Mincho','YuMincho','Noto Serif JP',serif; }
+html:lang(ja) .hero-overlay h1 { font-family:'DM Serif Display',serif; }
+html:lang(ja) p { word-break:normal; overflow-wrap:anywhere; line-break:strict; }

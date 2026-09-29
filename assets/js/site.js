@@ -119,7 +119,8 @@ document.querySelectorAll('.house-filter').forEach(bar => {
   if (!form) return;
   const file = form.querySelector('input[type=file]');
   const label = form.querySelector('.file-name');
-  file.addEventListener('change', () => { label.innerHTML = '<i class="ti ti-paperclip"></i> ' + (file.files[0] ? file.files[0].name : 'Choose a file'); });
+  const initial = label.innerHTML;
+  file.addEventListener('change', () => { label.innerHTML = file.files[0] ? '<i class="ti ti-paperclip"></i> ' + file.files[0].name : initial; });
   form.addEventListener('submit', e => {
     let ok = true;
     form.querySelectorAll('.invalid, .invalid-group').forEach(el => el.classList.remove('invalid', 'invalid-group'));
