@@ -872,3 +872,11 @@ html { scroll-behavior:smooth; }
   .hero-overlay h1 .hero-eyebrow { margin-bottom:0.95rem; font-size:0.72rem; line-height:1.5; }
   .hero-overlay p { font-size:0.95rem; line-height:1.7; margin-bottom:1.75rem; max-width:32ch; }
 }
+
+/* ===== 中文（繁體字）ページのフォント：見出しも黒体系（明朝体はWindowsで崩れやすいため） ===== */
+html:lang(zh) body { font-family:'DM Sans','PingFang TC','Noto Sans TC','Microsoft JhengHei','Heiti TC',sans-serif; line-height:1.85; }
+html:lang(zh) h1, html:lang(zh) h2, html:lang(zh) h3, html:lang(zh) .facts-price, html:lang(zh) legend, html:lang(zh) blockquote p { font-family:'DM Serif Display','PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif; }
+html:lang(zh) .hero-overlay h1 { font-family:'DM Serif Display',serif; }
+html:lang(zh) p { word-break:normal; overflow-wrap:anywhere; line-break:strict; }
+html:lang(zh) .hero-eyebrow { letter-spacing:0.1em; font-family:'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif; }
+html:lang(zh) .philosophy h2 { font-family:'DM Serif Display','Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif; }
