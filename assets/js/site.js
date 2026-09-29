@@ -81,3 +81,32 @@ document.querySelectorAll('.house-filter').forEach(bar => {
     cards.forEach(c => c.classList.toggle('hidden', f !== 'all' && c.dataset.type !== f));
   }));
 });
+
+// ===== お問い合わせフォーム：ハウスの事前選択・必須チェック =====
+(function () {
+  const form = document.getElementById('enquiryForm');
+  if (!form) return;
+  const house = new URLSearchParams(location.search).get('house');
+  if (house) { const cb = form.querySelector(`input[data-house="${house}"]`); if (cb) cb.checked = true; }
+  const note = document.getElementById('womenNote');
+  const updateNote = () => {
+    const male = form.querySelector('input[name="field_5218233"][value="0"]').checked;
+    const women = [...form.querySelectorAll('input[data-house]')].some(c => c.checked && ['tate','halu','fuji'].includes(c.dataset.house));
+    if (note) note.hidden = !(male && women);
+  };
+  form.addEventListener('change', updateNote); updateNote();
+  form.addEventListener('submit', e => {
+    let ok = true;
+    form.querySelectorAll('.invalid, .invalid-group').forEach(el => el.classList.remove('invalid', 'invalid-group'));
+    form.querySelectorAll('input[required]:not([type=radio]), select[required], textarea[required]').forEach(el => {
+      const bad = !el.value.trim() || (el.type === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value));
+      if (bad) { el.classList.add('invalid'); ok = false; }
+    });
+    ['field_5218233', 'field_5248192', 'field_5248123'].forEach(n => {
+      if (!form.querySelector(`input[name="${n}"]:checked`)) { form.querySelector(`input[name="${n}"]`).closest('.chips').classList.add('invalid-group'); ok = false; }
+    });
+    const err = document.getElementById('formError');
+    if (!ok) { e.preventDefault(); err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+    else err.hidden = true;
+  });
+})();
