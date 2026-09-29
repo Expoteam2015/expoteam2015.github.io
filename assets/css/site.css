@@ -294,6 +294,8 @@ footer { background:var(--footer-bg); color:rgba(255,255,255,0.5); padding:2.5re
 .footer-lang-grid li a:hover { color:rgba(255,255,255,0.9); }
 .footer-lang-grid li a.active { color:rgba(255,255,255,0.8); }
 .footer-bottom { padding:1.25rem 0; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; font-size:0.72rem; color:rgba(255,255,255,0.2); }
+.footer-bottom .footer-legal { color:rgba(255,255,255,0.45); text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(255,255,255,0.2); }
+.footer-bottom .footer-legal:hover { color:rgba(255,255,255,0.9); }
 
 /* RESPONSIVE */
 @media (max-width:1080px) {
@@ -841,3 +843,32 @@ p, li, dd { text-wrap:pretty; }
 a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:2px solid var(--green); outline-offset:3px; border-radius:6px; }
 html { scroll-behavior:smooth; }
 @media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+
+/* PRIVACY POLICY */
+.policy-wrap { max-width:820px; }
+.policy-date { font-size:0.82rem; color:var(--ink-muted); margin-top:0.4rem; }
+.policy-body section { padding:1.6rem 0; border-top:1px solid var(--border); }
+.policy-body h2 { font-family:var(--serif); font-weight:400; font-size:1.45rem; line-height:1.3; margin-bottom:0.7rem; }
+.policy-body h3 { font-size:0.98rem; font-weight:600; margin:1rem 0 0.35rem; }
+.policy-body p, .policy-body li { color:var(--ink-soft); max-width:68ch; }
+.policy-body p + p { margin-top:0.6rem; }
+.policy-body ul { padding-left:1.25rem; margin-top:0.4rem; }
+.policy-body li { margin-bottom:0.35rem; }
+.policy-body a { color:var(--green); text-decoration:underline; text-underline-offset:3px; }
+.policy-body a:hover { color:var(--green-dark); }
+.policy-contact { display:grid; grid-template-columns:max-content 1fr; gap:0.7rem 1.5rem; margin-top:0.9rem; padding:1.25rem 1.4rem; background:var(--paper-off); border-radius:var(--r-img); }
+.policy-contact dt { font-size:0.85rem; font-weight:600; color:var(--ink); }
+.policy-contact dd { color:var(--ink-soft); }
+.policy-contact dd span[lang] { display:block; font-size:0.88rem; color:var(--ink-muted); }
+@media (max-width:560px) { .policy-contact { grid-template-columns:1fr; gap:0.2rem; } .policy-contact dd { margin-bottom:0.7rem; } }
+.f-privacy a { text-decoration:underline; text-underline-offset:3px; }
+
+/* ===== スマホTOP：ヒーローの文字を上下バランスよく（内容に合わせて高さが伸びる） ===== */
+@media (max-width:640px) {
+  .hero-grid { grid-template-rows:auto 180px minmax(140px,auto) minmax(140px,auto); }
+  .hero-cell-main .slideshow { position:absolute; inset:0; }
+  .hero-cell-main .hero-overlay { position:relative; inset:auto; min-height:min(120vw,480px); justify-content:center; padding:2.75rem 1.5rem 3rem; background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,rgba(0,0,0,0.38) 55%,rgba(0,0,0,0.28) 100%); }
+  .hero-overlay h1 { padding-top:0; margin-bottom:1.1rem; font-size:clamp(1.8rem,8vw,2.3rem); line-height:1.12; }
+  .hero-overlay h1 .hero-eyebrow { margin-bottom:0.95rem; font-size:0.72rem; line-height:1.5; }
+  .hero-overlay p { font-size:0.95rem; line-height:1.7; margin-bottom:1.75rem; max-width:32ch; }
+}
