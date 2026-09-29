@@ -880,3 +880,8 @@ html:lang(zh) .hero-overlay h1 { font-family:'DM Serif Display',serif; }
 html:lang(zh) p { word-break:normal; overflow-wrap:anywhere; line-break:strict; }
 html:lang(zh) .hero-eyebrow { letter-spacing:0.1em; font-family:'PingFang TC','Noto Sans TC','Microsoft JhengHei',sans-serif; }
 html:lang(zh) .philosophy h2 { font-family:'DM Serif Display','Hiragino Mincho ProN','Yu Mincho','Noto Serif JP',serif; }
+
+/* ===== 中文「關於我們」：おかえり／歡迎回來、ただいま／我回來了 を1組ずつ表示 ===== */
+.about-hero h1 .jp-pair { display:block; }
+.about-hero h1 .jp-pair + .jp-pair { margin-top:0.45em; }
+.about-hero h1 .jp-pair .jp { margin-bottom:0.2rem; font-family:'Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif; }
