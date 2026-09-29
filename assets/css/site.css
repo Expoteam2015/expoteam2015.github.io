@@ -830,3 +830,14 @@ html:lang(ja) p { word-break:normal; overflow-wrap:anywhere; line-break:strict; 
 /* ===== 言語切替：クリックでも開閉・少し残る ===== */
 .lang-wrap.open .lang-dropdown { opacity:1; pointer-events:auto; transform:translateY(0); }
 .lang-dropdown::before { content:''; position:absolute; left:0; right:0; top:-10px; height:10px; }
+.houses-sub { color:var(--ink-soft); font-size:0.92rem; margin-top:0.35rem; }
+.hero-eyebrow { display:block; font-family:var(--sans); font-size:clamp(0.7rem,1.4vw,0.8rem); font-weight:500; letter-spacing:0.14em; text-transform:uppercase; color:rgba(255,255,255,0.85); margin-bottom:0.7rem; }
+html:lang(ja) .hero-eyebrow { letter-spacing:0.1em; font-family:'Hiragino Sans','Noto Sans JP','Yu Gothic',sans-serif; }
+
+/* ===== 仕上げ：読みやすさ・操作性 ===== */
+h1, h2, h3 { text-wrap:balance; }
+p, li, dd { text-wrap:pretty; }
+::selection { background:var(--green-light); color:var(--green-dark); }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:2px solid var(--green); outline-offset:3px; border-radius:6px; }
+html { scroll-behavior:smooth; }
+@media (prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
