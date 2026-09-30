@@ -18,6 +18,7 @@
 <link rel="alternate" hreflang="en" href="https://expohouse.jp/en/events/">
 <link rel="alternate" hreflang="ja" href="https://expohouse.jp/ja/events/">
 <link rel="alternate" hreflang="zh" href="https://expohouse.jp/zh/events/">
+<link rel="alternate" hreflang="ko" href="https://expohouse.jp/ko/events/">
 <link rel="alternate" hreflang="x-default" href="https://expohouse.jp/en/events/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
@@ -30,13 +31,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/icons.css?v=20261001i">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261001i">
+<link rel="stylesheet" href="/assets/css/icons.css?v=20261001j">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261001j">
 </head>
 <body>
 
 
-<div class="sticky-bar" id="stickyBar">
+<div class="sticky-bar" id="stickyBar" role="navigation" aria-label="クイックメニュー">
   <a href="/ja/" class="sticky-bar-logo" aria-label="Expo House ホーム"><img src="/assets/img/logo.png" alt="Expo House"></a>
   <div class="sticky-bar-links">
     <a href="/ja/houses/">ハウス紹介</a>
@@ -62,10 +63,11 @@
         <button class="lang-btn" aria-label="言語を切り替える">
           <i class="ti ti-world"></i> JA <i class="ti ti-chevron-down" style="font-size:0.7rem;"></i>
         </button>
-        <div class="lang-dropdown" role="menu">
+        <div class="lang-dropdown">
           <a href="/en/events/">English</a>
           <a href="/ja/events/" class="active">日本語</a>
           <a href="/zh/events/">中文</a>
+          <a href="/ko/events/">한국어</a>
         </div>
       </div>
       <a href="/ja/contact/" class="enquire-btn"><i class="ti ti-mail"></i> お問い合わせ</a>
@@ -77,7 +79,7 @@
 </header>
 
 <!-- モバイルドロワー -->
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="メニュー">
   <a href="/ja/"><i class="ti ti-home"></i> ホーム</a>
   <a href="/ja/about/"><i class="ti ti-info-circle"></i> ごあいさつ</a>
   <a href="/ja/houses/"><i class="ti ti-building"></i> ハウス紹介</a>
@@ -89,8 +91,10 @@
     <a href="/en/events/">EN</a>
     <a href="/ja/events/" class="active">JA</a>
     <a href="/zh/events/">中文</a>
+    <a href="/ko/events/">한국어</a>
   </div>
 </div>
+
 
 
 <main class="page-wrap">
@@ -937,7 +941,7 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>メニュー</h4>
+      <h2 class="footer-h">メニュー</h2>
       <ul>
         <li><a href="/ja/houses/"><i class="ti ti-home"></i> ハウス紹介</a></li>
         <li><a href="/ja/about/"><i class="ti ti-info-circle"></i> ごあいさつ</a></li>
@@ -948,11 +952,12 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>言語</h4>
+      <h2 class="footer-h">言語</h2>
       <ul class="footer-lang-grid">
         <li><a href="/en/events/">English</a></li>
         <li><a href="/ja/events/" class="active">日本語</a></li>
         <li><a href="/zh/events/">中文</a></li>
+        <li><a href="/ko/events/">한국어</a></li>
       </ul>
     </div>
   </div>
@@ -964,12 +969,12 @@
 </footer>
 
 <!-- スマホ固定ボトムバー -->
-<div class="mobile-bottom-bar">
+<div class="mobile-bottom-bar" role="navigation" aria-label="よく使うリンク">
   <a href="/ja/contact/">
     <i class="ti ti-mail"></i> お部屋のお問い合わせ
   </a>
 </div>
 
-<script src="/assets/js/site.js?v=20261001i"></script>
+<script src="/assets/js/site.js?v=20261001j"></script>
 </body>
 </html>

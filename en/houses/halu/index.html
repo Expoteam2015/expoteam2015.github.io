@@ -18,6 +18,7 @@
 <link rel="alternate" hreflang="en" href="https://expohouse.jp/en/houses/halu/">
 <link rel="alternate" hreflang="ja" href="https://expohouse.jp/ja/houses/halu/">
 <link rel="alternate" hreflang="zh" href="https://expohouse.jp/zh/houses/halu/">
+<link rel="alternate" hreflang="ko" href="https://expohouse.jp/ko/houses/halu/">
 <link rel="alternate" hreflang="x-default" href="https://expohouse.jp/en/houses/halu/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://expohouse.jp/en/houses/halu/">
@@ -29,13 +30,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/icons.css?v=20261001i">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261001i">
+<link rel="stylesheet" href="/assets/css/icons.css?v=20261001j">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261001j">
 </head>
 <body>
 
 
-<div class="sticky-bar" id="stickyBar">
+<div class="sticky-bar" id="stickyBar" role="navigation" aria-label="Quick menu">
   <a href="/en/" class="sticky-bar-logo" aria-label="Expo House home"><img src="/assets/img/logo.png" alt="Expo House"></a>
   <div class="sticky-bar-links">
     <a href="/en/houses/">Houses</a>
@@ -61,10 +62,11 @@
         <button class="lang-btn" aria-label="Change language">
           <i class="ti ti-world"></i> EN <i class="ti ti-chevron-down" style="font-size:0.7rem;"></i>
         </button>
-        <div class="lang-dropdown" role="menu">
+        <div class="lang-dropdown">
           <a href="/en/houses/halu/" class="active">English</a>
           <a href="/ja/houses/halu/">日本語</a>
           <a href="/zh/houses/halu/">中文</a>
+          <a href="/ko/houses/halu/">한국어</a>
         </div>
       </div>
       <a href="/en/contact/" class="enquire-btn"><i class="ti ti-mail"></i> Enquire</a>
@@ -76,7 +78,7 @@
 </header>
 
 <!-- モバイルドロワー -->
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="Mobile menu">
   <a href="/en/"><i class="ti ti-home"></i> HOME</a>
   <a href="/en/about/"><i class="ti ti-info-circle"></i> ABOUT</a>
   <a href="/en/houses/"><i class="ti ti-building"></i> HOUSE</a>
@@ -88,8 +90,10 @@
     <a href="/en/houses/halu/" class="active">EN</a>
     <a href="/ja/houses/halu/">JA</a>
     <a href="/zh/houses/halu/">中文</a>
+    <a href="/ko/houses/halu/">한국어</a>
   </div>
 </div>
+
 
 
 <main class="page-wrap">
@@ -987,7 +991,7 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>Navigation</h4>
+      <h2 class="footer-h">Navigation</h2>
       <ul>
         <li><a href="/en/houses/"><i class="ti ti-home"></i> Houses</a></li>
         <li><a href="/en/about/"><i class="ti ti-info-circle"></i> About</a></li>
@@ -998,11 +1002,12 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>Language</h4>
+      <h2 class="footer-h">Language</h2>
       <ul class="footer-lang-grid">
         <li><a href="/en/houses/halu/" class="active">English</a></li>
         <li><a href="/ja/houses/halu/">日本語</a></li>
         <li><a href="/zh/houses/halu/">中文</a></li>
+        <li><a href="/ko/houses/halu/">한국어</a></li>
       </ul>
     </div>
   </div>
@@ -1014,12 +1019,12 @@
 </footer>
 
 <!-- スマホ固定ボトムバー -->
-<div class="mobile-bottom-bar">
+<div class="mobile-bottom-bar" role="navigation" aria-label="Quick actions">
   <a href="/en/contact/">
     <i class="ti ti-mail"></i> Enquire about rooms
   </a>
 </div>
 
-<script src="/assets/js/site.js?v=20261001i"></script>
+<script src="/assets/js/site.js?v=20261001j"></script>
 </body>
 </html>

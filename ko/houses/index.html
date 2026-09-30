@@ -31,13 +31,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/icons.css?v=20261001i">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261001i">
+<link rel="stylesheet" href="/assets/css/icons.css?v=20261001j">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261001j">
 </head>
 <body>
 
 
-<div class="sticky-bar" id="stickyBar">
+<div class="sticky-bar" id="stickyBar" role="navigation" aria-label="빠른 메뉴">
   <a href="/ko/" class="sticky-bar-logo" aria-label="Expo House 홈"><img src="/assets/img/logo.png" alt="Expo House"></a>
   <div class="sticky-bar-links">
     <a href="/ko/houses/" class="active">하우스 소개</a>
@@ -63,7 +63,7 @@
         <button class="lang-btn" aria-label="언어 변경">
           <i class="ti ti-world"></i> 한국어 <i class="ti ti-chevron-down" style="font-size:0.7rem;"></i>
         </button>
-        <div class="lang-dropdown" role="menu">
+        <div class="lang-dropdown">
           <a href="/en/houses/">English</a>
           <a href="/ja/houses/">日本語</a>
           <a href="/zh/houses/">中文</a>
@@ -79,7 +79,7 @@
 </header>
 
 <!-- モバイルドロワー -->
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="메뉴">
   <a href="/ko/"><i class="ti ti-home"></i> 홈</a>
   <a href="/ko/about/"><i class="ti ti-info-circle"></i> 소개</a>
   <a href="/ko/houses/"><i class="ti ti-building"></i> 하우스 소개</a>
@@ -94,6 +94,7 @@
     <a href="/ko/houses/" class="active">한국어</a>
   </div>
 </div>
+
 
 
 <main class="page-wrap">
@@ -954,7 +955,7 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>메뉴</h4>
+      <h2 class="footer-h">메뉴</h2>
       <ul>
         <li><a href="/ko/houses/"><i class="ti ti-home"></i> 하우스 소개</a></li>
         <li><a href="/ko/about/"><i class="ti ti-info-circle"></i> 소개</a></li>
@@ -965,7 +966,7 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>언어</h4>
+      <h2 class="footer-h">언어</h2>
       <ul class="footer-lang-grid">
         <li><a href="/en/houses/">English</a></li>
         <li><a href="/ja/houses/">日本語</a></li>
@@ -982,12 +983,12 @@
 </footer>
 
 <!-- スマホ固定ボトムバー -->
-<div class="mobile-bottom-bar">
+<div class="mobile-bottom-bar" role="navigation" aria-label="자주 쓰는 링크">
   <a href="/ko/contact/">
     <i class="ti ti-mail"></i> 빈방 문의
   </a>
 </div>
 
-<script src="/assets/js/site.js?v=20261001i"></script>
+<script src="/assets/js/site.js?v=20261001j"></script>
 </body>
 </html>

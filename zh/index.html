@@ -20,6 +20,7 @@
 <link rel="alternate" hreflang="en" href="https://expohouse.jp/en/">
 <link rel="alternate" hreflang="ja" href="https://expohouse.jp/ja/">
 <link rel="alternate" hreflang="zh" href="https://expohouse.jp/zh/">
+<link rel="alternate" hreflang="ko" href="https://expohouse.jp/ko/">
 <link rel="alternate" hreflang="x-default" href="https://expohouse.jp/en/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="zh_TW">
@@ -32,12 +33,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/icons.css?v=20261001i">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261001i">
+<link rel="stylesheet" href="/assets/css/icons.css?v=20261001j">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261001j">
 </head>
 <body>
 
-<div class="sticky-bar" id="stickyBar">
+<div class="sticky-bar" id="stickyBar" role="navigation" aria-label="快速選單">
   <a href="/zh/" class="sticky-bar-logo" aria-label="Expo House 首頁"><img src="/assets/img/logo.png" alt="Expo House"></a>
   <div class="sticky-bar-links">
     <a href="#houses">房屋介紹</a>
@@ -63,10 +64,11 @@
         <button class="lang-btn" aria-label="切換語言">
           <i class="ti ti-world"></i> 中文 <i class="ti ti-chevron-down" style="font-size:0.7rem;"></i>
         </button>
-        <div class="lang-dropdown" role="menu">
+        <div class="lang-dropdown">
           <a href="/en/">English</a>
           <a href="/ja/">日本語</a>
           <a href="/zh/" class="active">中文</a>
+          <a href="/ko/">한국어</a>
         </div>
       </div>
       <a href="/zh/contact/" class="enquire-btn"><i class="ti ti-mail"></i> 聯絡我們</a>
@@ -78,7 +80,7 @@
 </header>
 
 <!-- モバイルドロワー -->
-<div class="mobile-drawer" id="mobileDrawer">
+<div class="mobile-drawer" id="mobileDrawer" role="navigation" aria-label="選單">
   <a href="/zh/"><i class="ti ti-home"></i> 首頁</a>
   <a href="/zh/about/"><i class="ti ti-info-circle"></i> 關於我們</a>
   <a href="/zh/houses/"><i class="ti ti-building"></i> 房屋介紹</a>
@@ -90,9 +92,11 @@
     <a href="/en/">EN</a>
     <a href="/ja/">JA</a>
     <a href="/zh/" class="active">中文</a>
+    <a href="/ko/">한국어</a>
   </div>
 </div>
 
+<main class="top-main">
 <div class="hero-grid" data-zh-hero role="region" aria-label="歡迎來到 Expo House">
   <div class="hero-cell hero-cell-main">
     <div class="slideshow">
@@ -252,6 +256,7 @@
   </section>
 </div>
 
+</main>
 <!-- CITYSCAPE（フッター上の水玉シルエット） -->
 <div class="footer-cityscape" aria-hidden="true">
   <div class="footer-dots-inner">
@@ -1089,7 +1094,7 @@
       </div>
     </div>
     <div class="footer-col">
-      <h4>選單</h4>
+      <h2 class="footer-h">選單</h2>
       <ul>
         <li><a href="/zh/houses/"><i class="ti ti-home"></i> 房屋介紹</a></li>
         <li><a href="/zh/about/"><i class="ti ti-info-circle"></i> 關於我們</a></li>
@@ -1100,11 +1105,12 @@
       </ul>
     </div>
     <div class="footer-col">
-      <h4>語言</h4>
+      <h2 class="footer-h">語言</h2>
       <ul class="footer-lang-grid">
         <li><a href="/en/">English</a></li>
         <li><a href="/ja/">日本語</a></li>
         <li><a href="/zh/" class="active">中文</a></li>
+        <li><a href="/ko/">한국어</a></li>
       </ul>
     </div>
   </div>
@@ -1116,12 +1122,12 @@
 </footer>
 
 <!-- スマホ固定ボトムバー -->
-<div class="mobile-bottom-bar">
+<div class="mobile-bottom-bar" role="navigation" aria-label="常用連結">
   <a href="/zh/contact/">
     <i class="ti ti-mail"></i> 詢問空房
   </a>
 </div>
 
-<script src="/assets/js/site.js?v=20261001i"></script>
+<script src="/assets/js/site.js?v=20261001j"></script>
 </body>
 </html>
