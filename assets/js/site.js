@@ -139,7 +139,7 @@ document.querySelectorAll('.house-filter').forEach(bar => {
 (function () {
   const b = document.createElement('button');
   b.className = 'to-top'; b.type = 'button';
-  b.setAttribute('aria-label', ({ ja:'ページの先頭へ戻る', zh:'回到頁首' })[document.documentElement.lang.slice(0,2)] || 'Back to top');
+  b.setAttribute('aria-label', ({ ja:'ページの先頭へ戻る', zh:'回到頁首', ko:'맨 위로' })[document.documentElement.lang.slice(0,2)] || 'Back to top');
   b.innerHTML = '<i class="ti ti-arrow-up"></i><span style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">↑</span>';
   document.body.appendChild(b);
   window.addEventListener('scroll', () => b.classList.toggle('show', window.scrollY > 600), { passive: true });

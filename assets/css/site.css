@@ -923,3 +923,11 @@ html:lang(zh) .philosophy h2 { font-family:'DM Serif Display','Hiragino Mincho P
   [data-zh-hero] .hero-overlay h1 { font-size:clamp(1.45rem,6.4vw,1.8rem); }
   [data-zh-dual] .dual-cell, [data-zh-dual] .dual-cell-overlay { min-height:260px; }
 }
+
+/* ===== 한국어ページのフォント：単語の途中で改行しない（keep-all） ===== */
+html:lang(ko) body { font-family:'DM Sans','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif; line-height:1.8; }
+html:lang(ko) h1, html:lang(ko) h2, html:lang(ko) h3, html:lang(ko) .facts-price, html:lang(ko) legend, html:lang(ko) blockquote p { font-family:'DM Serif Display','Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif; }
+html:lang(ko) p, html:lang(ko) li, html:lang(ko) h1, html:lang(ko) h2, html:lang(ko) h3, html:lang(ko) dd, html:lang(ko) summary { word-break:keep-all; overflow-wrap:anywhere; }
+html:lang(ko) .hero-eyebrow { letter-spacing:0.08em; font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif; }
+html:lang(ko) [data-zh-hero] .hero-overlay h1 { font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif; font-weight:700; }
+html:lang(ko) .philosophy h2 { font-family:'Apple SD Gothic Neo','Noto Sans KR','Malgun Gothic',sans-serif; }
