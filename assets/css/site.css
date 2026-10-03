@@ -918,3 +918,6 @@ html:lang(ko) .philosophy h2 { font-family:'Apple SD Gothic Neo','Noto Sans KR',
 .hero-overlay .hero-facts li { position:relative; padding-left:0.75rem; font-size:0.8rem; line-height:1.6; color:rgba(255,255,255,0.94); white-space:nowrap; text-shadow:none; }
 .hero-overlay .hero-facts li::before { content:''; position:absolute; left:0; top:50%; width:4px; height:4px; margin-top:-2px; border-radius:50%; background:#f2c08f; }
 @media (max-width:640px){ .hero-overlay .hero-facts li { font-size:0.76rem; } }
+
+/* ===== <img> の width/height は読み込み中の場所取り用。表示サイズはCSSのまま（詳細度0なので既存ルールが常に優先） ===== */
+:where(img[width][height]) { height:auto; }
