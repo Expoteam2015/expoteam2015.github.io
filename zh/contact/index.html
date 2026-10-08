@@ -29,8 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/icons.css?v=20261008a">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261008a">
+<link rel="stylesheet" href="/assets/css/icons.css?v=20261008b">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261008b">
 </head>
 <body>
 
@@ -104,7 +104,7 @@
       <ol class="contact-steps">
         <li><span>1</span><div><strong>填寫表單</strong><p>大約 2 分鐘就能完成。標有＊的欄位為必填。</p></div></li>
         <li><span>2</span><div><strong>確認內容</strong><p>送出前會先出現確認頁面（日文／英文）。確認內容後，請按下藍色的「送信する」按鈕完成送出。</p></div></li>
-        <li><span>3</span><div><strong>Email 回覆</strong><p>我們會告訴你目前有哪些空房，並回答你的問題。為了讓團隊每個人都能掌握內容，回覆會使用英文或日文。</p></div></li>
+        <li><span>3</span><div><strong>Email 回覆</strong><p>我們會在一週內告訴你目前有哪些空房，並回答你的問題。為了讓團隊每個人都能掌握內容，回覆會使用英文或日文。</p></div></li>
       </ol>
       <div class="contact-tips"><h2>在詢問內容中寫下這些，會更順利</h2><ul><li><i class="ti ti-circle-check"></i>預計停留期間</li><li><i class="ti ti-circle-check"></i>希望入住日期（如果已確定）</li><li><i class="ti ti-circle-check"></i>想了解的事（例如房間大小、看房）</li></ul><h2>入住前請先確認</h2><ul><li><i class="ti ti-info-circle"></i>每間私人房間限 1 人入住</li><li><i class="ti ti-info-circle"></i>入住對象為 18～45 歲</li><li><i class="ti ti-info-circle"></i>最短租期 2 個月（3～4 月入住為 3 個月）</li><li><i class="ti ti-info-circle"></i>不可飼養寵物</li><li><i class="ti ti-info-circle"></i>建議在入住前約 1～1.5 個月詢問。</li></ul></div>
       <div class="contact-side-note"><i class="ti ti-help-circle"></i><p>只是想先了解一下嗎？<a href="/zh/faq/">常見問題</a>整理了月租、押金、設備和入住的相關資訊。</p></div>
@@ -115,7 +115,7 @@
         <div class="f-row"><label class="f-field"><span class="f-label">姓名 <em>＊</em></span><input name="field_5218840" type="text" autocomplete="name" required></label></div>
         <div class="f-row two">
           <label class="f-field"><span class="f-label">Email <em>＊</em></span><input name="field_5218232" type="email" autocomplete="email" placeholder="you@example.com" required></label>
-          <label class="f-field"><span class="f-label">電話號碼 <em>＊</em></span><input name="field_5548882" type="tel" autocomplete="tel" placeholder="090-0000-0000" required><span class="f-help">還沒有日本電話號碼的話，請輸入「0」。</span></label>
+          <label class="f-field"><span class="f-label">電話號碼</span><input name="field_5548882" type="tel" autocomplete="tel" placeholder="090-0000-0000"><span class="f-help">選填。如果你有在日本可以使用的電話號碼，請填寫。</span></label>
         </div>
         <div class="f-row two">
           <label class="f-field"><span class="f-label">國籍</span><input name="field_5248052" type="text" autocomplete="country-name"></label>
@@ -127,7 +127,7 @@
         </div>
       </fieldset>
       <fieldset><legend>關於入住</legend>
-        <div class="f-row"><label class="f-field"><span class="f-label">希望入住月份</span><select name="field_5248296"><option value="">請選擇</option><option value="0">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></label></div>
+        <div class="f-row two"><label class="f-field"><span class="f-label">希望入住年份</span><select id="moveYear" data-moveyear><option value="">請選擇</option></select></label><label class="f-field"><span class="f-label">希望入住月份</span><select name="field_5248296"><option value="">請選擇</option><option value="0">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></label></div>
         <div class="f-row"><div class="f-field"><span class="f-label">有興趣的房屋 <em>＊</em> <span class="f-sub">可複選</span></span><div class="chips house-chips" id="houseChips"><label class="chip"><input type="checkbox" name="field_5248123" value="0" data-house="ichi"><span>Ichi<small>男女混住</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="1" data-house="jurack3"><span>Jurack 3<small>男女混住</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="2" data-house="rozan"><span>Rozan<small>男女混住</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="3" data-house="tate"><span>Tate<small>女性專用</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="4" data-house="halu"><span>Halu<small>女性專用</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="5" data-house="fuji"><span>Fuji<small>女性專用</small></span></label></div><span class="f-help" id="womenNote" hidden><i class="ti ti-info-circle"></i> Tate、Halu、Fuji 是女性專用房屋。</span></div></div>
         <div class="f-row"><label class="f-field"><span class="f-label">詢問內容 <em>＊</em></span><textarea name="field_5248305" rows="6" required placeholder="例如：預計居住期間、預算、來京都的目的（留學、語言學校、打工度假等）、想問的問題"></textarea><span class="f-help">可以用中文填寫；我們會以英文或日文回覆。</span></label></div>
       </fieldset>
@@ -1008,6 +1008,6 @@
   </a>
 </div>
 
-<script src="/assets/js/site.js?v=20261008a"></script>
+<script src="/assets/js/site.js?v=20261008b"></script>
 </body>
 </html>
