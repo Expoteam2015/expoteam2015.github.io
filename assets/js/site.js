@@ -96,6 +96,10 @@ document.querySelectorAll('.house-filter').forEach(bar => {
     if (note) note.hidden = !(male && women);
   };
   form.addEventListener('change', updateNote); updateNote();
+  // 入居希望年：フォームメーラーに年の項目がないので、今年と来年を選べるようにし、送信時にお問い合わせ内容の先頭に書き込む
+  const year = form.querySelector('[data-moveyear]');
+  if (year) { const y = new Date().getFullYear(); [y, y + 1].forEach(v => year.add(new Option(String(v), String(v)))); }
+  const MOVE_TAG = /^\[Move-in \/ 入居希望: [^\]\n]*\]\n/;
   form.addEventListener('submit', e => {
     let ok = true;
     form.querySelectorAll('.invalid, .invalid-group').forEach(el => el.classList.remove('invalid', 'invalid-group'));
@@ -108,9 +112,29 @@ document.querySelectorAll('.house-filter').forEach(bar => {
       if (!form.querySelector(`input[name="${n}"]:checked`)) { form.querySelector(`input[name="${n}"]`).closest('.chips').classList.add('invalid-group'); ok = false; }
     });
     const err = document.getElementById('formError');
-    if (!ok) { e.preventDefault(); err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); }
-    else err.hidden = true;
+    if (!ok) { e.preventDefault(); err.hidden = false; err.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }
+    err.hidden = true;
+    // 電話番号は任意。フォームメーラー側は必須なので、空なら「0」を送る（数字・+・-・( ) 以外は受け付けないので空白などを除く）
+    const tel = form.querySelector('input[name="field_5548882"]');
+    if (tel) { const v = tel.value.replace(/[０-９]/g, c => String.fromCharCode(c.charCodeAt(0) - 0xFEE0)).replace(/[^0-9+\-()]/g, ''); tel.value = v || '0'; }
+    const msg = form.querySelector('textarea[name="field_5248305"]');
+    const mon = form.querySelector('select[name="field_5248296"]');
+    if (msg && year) {
+      const body = msg.value.replace(MOVE_TAG, '');
+      const when = year.value ? year.value + (mon && mon.value !== '' ? '-' + String(+mon.value + 1).padStart(2, '0') : '') : '';
+      msg.value = when ? '[Move-in / 入居希望: ' + when + ']\n' + body : body;
+    }
   });
+})();
+
+// ===== お問い合わせ完了ページ：GA4 に generate_lead を送る（キーイベント用）
+// フォームメーラーの送信完了後に /en/contact/thanks/ へ移る。再読み込みで二重に数えないよう、同じタブでは1回だけ送る
+(function () {
+  if (location.pathname !== '/en/contact/thanks/') return;
+  try { if (sessionStorage.getItem('eh_lead_sent')) return; } catch (err) {}
+  if (typeof window.gtag !== 'function') return;
+  window.gtag('event', 'generate_lead', { form_name: 'sharehouse_enquiry', transport_type: 'beacon' });
+  try { sessionStorage.setItem('eh_lead_sent', '1'); } catch (err) {}
 })();
 
 // ===== スタッフ応募フォーム：ファイル名表示・必須チェック =====

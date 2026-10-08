@@ -29,8 +29,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/icons.css?v=20261008a">
-<link rel="stylesheet" href="/assets/css/site.css?v=20261008a">
+<link rel="stylesheet" href="/assets/css/icons.css?v=20261008b">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261008b">
 </head>
 <body>
 
@@ -104,7 +104,7 @@
       <ol class="contact-steps">
         <li><span>1</span><div><strong>フォームを送信</strong><p>2分ほどで入力できます。＊は必須項目です。</p></div></li>
         <li><span>2</span><div><strong>内容を確認</strong><p>送信前に確認画面が表示されます。</p></div></li>
-        <li><span>3</span><div><strong>メールでご連絡</strong><p>空いているお部屋のご案内や、ご質問への回答をお送りします。</p></div></li>
+        <li><span>3</span><div><strong>メールでご連絡</strong><p>空いているお部屋のご案内や、ご質問への回答を、1週間以内にお送りします。</p></div></li>
       </ol>
       <div class="contact-tips"><h2>お問い合わせ内容に書いていただくとスムーズなこと</h2><ul><li><i class="ti ti-circle-check"></i>滞在予定期間</li><li><i class="ti ti-circle-check"></i>入居希望日（決まっていれば）</li><li><i class="ti ti-circle-check"></i>気になること（お部屋の広さ、内見など）</li></ul><h2>あらかじめご確認ください</h2><ul><li><i class="ti ti-info-circle"></i>1部屋1名でのご入居です</li><li><i class="ti ti-info-circle"></i>18〜45歳の方が対象です</li><li><i class="ti ti-info-circle"></i>最短2か月から（3〜4月入居は3か月から）</li><li><i class="ti ti-info-circle"></i>ペットは飼えません</li><li><i class="ti ti-info-circle"></i>入居の1〜1.5か月前ごろのお問い合わせがおすすめです。</li></ul></div>
       <div class="contact-side-note"><i class="ti ti-help-circle"></i><p>まずはちょっと知りたいだけ、という方は<a href="/ja/faq/">よくある質問</a>もご覧ください。家賃・保証金・設備・入居について載っています。</p></div>
@@ -115,7 +115,7 @@
         <div class="f-row"><label class="f-field"><span class="f-label">お名前 <em>＊</em></span><input name="field_5218840" type="text" autocomplete="name" required></label></div>
         <div class="f-row two">
           <label class="f-field"><span class="f-label">メールアドレス <em>＊</em></span><input name="field_5218232" type="email" autocomplete="email" placeholder="you@example.com" required></label>
-          <label class="f-field"><span class="f-label">電話番号 <em>＊</em></span><input name="field_5548882" type="tel" autocomplete="tel" placeholder="090-0000-0000" required><span class="f-help">日本の電話番号をお持ちでない方は「0」と入力してください。</span></label>
+          <label class="f-field"><span class="f-label">電話番号</span><input name="field_5548882" type="tel" autocomplete="tel" placeholder="090-0000-0000"><span class="f-help">任意です。日本で使える電話番号があればご記入ください。</span></label>
         </div>
         <div class="f-row two">
           <label class="f-field"><span class="f-label">国籍</span><input name="field_5248052" type="text" autocomplete="country-name"></label>
@@ -127,7 +127,7 @@
         </div>
       </fieldset>
       <fieldset><legend>入居について</legend>
-        <div class="f-row"><label class="f-field"><span class="f-label">入居希望月</span><select name="field_5248296"><option value="">選択してください</option><option value="0">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></label></div>
+        <div class="f-row two"><label class="f-field"><span class="f-label">入居希望年</span><select id="moveYear" data-moveyear><option value="">選択してください</option></select></label><label class="f-field"><span class="f-label">入居希望月</span><select name="field_5248296"><option value="">選択してください</option><option value="0">1月</option><option value="1">2月</option><option value="2">3月</option><option value="3">4月</option><option value="4">5月</option><option value="5">6月</option><option value="6">7月</option><option value="7">8月</option><option value="8">9月</option><option value="9">10月</option><option value="10">11月</option><option value="11">12月</option></select></label></div>
         <div class="f-row"><div class="f-field"><span class="f-label">気になるハウス <em>＊</em> <span class="f-sub">複数選択できます</span></span><div class="chips house-chips" id="houseChips"><label class="chip"><input type="checkbox" name="field_5248123" value="0" data-house="ichi"><span>Ichi<small>男女混合</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="1" data-house="jurack3"><span>Jurack 3<small>男女混合</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="2" data-house="rozan"><span>Rozan<small>男女混合</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="3" data-house="tate"><span>Tate<small>女性専用</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="4" data-house="halu"><span>Halu<small>女性専用</small></span></label><label class="chip"><input type="checkbox" name="field_5248123" value="5" data-house="fuji"><span>Fuji<small>女性専用</small></span></label></div><span class="f-help" id="womenNote" hidden><i class="ti ti-info-circle"></i> Tate・Halu・Fujiは女性専用ハウスです。</span></div></div>
         <div class="f-row"><label class="f-field"><span class="f-label">お問い合わせ内容 <em>＊</em></span><textarea name="field_5248305" rows="6" required placeholder="例：滞在予定期間、ご予算、京都に来る目的、ご質問など"></textarea></label></div>
       </fieldset>
@@ -1008,6 +1008,6 @@
   </a>
 </div>
 
-<script src="/assets/js/site.js?v=20261008a"></script>
+<script src="/assets/js/site.js?v=20261008b"></script>
 </body>
 </html>
