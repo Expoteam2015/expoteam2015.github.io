@@ -157,3 +157,30 @@ document.querySelectorAll('.lang-wrap').forEach(w => {
   document.addEventListener('click', e => { if (!w.contains(e.target)) close(0); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(0); });
 });
+
+// お問い合わせへのリンクが押されたら GA4 に sharehouse_contact_click を送る（お問い合わせページ /xx/contact/ へのリンクだけ）
+// ・ページ移動は止めない（preventDefault しない）／gtag が無い・失敗しても何もせず普通にリンクが動く
+// ・どのボタンかは data-cta、無ければ置き場所（ヘッダー・スマホ下部など）から判定
+(function () {
+  var CONTACT = /^\/(en|ja|zh|ko)\/contact\/$/;
+  var PLACES = [['.sticky-bar','sticky_bar'],['.mobile-bottom-bar','mobile_bottom_bar'],['.mobile-drawer','menu'],['header','header'],
+                ['footer','footer'],['.facts-card','facts_card'],['.index-cta','page_bottom_cta'],['main','content']];
+  document.addEventListener('click', function (e) {
+    try {
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a || typeof window.gtag !== 'function') return;
+      var u = new URL(a.getAttribute('href'), location.href);
+      if (u.origin !== location.origin || !CONTACT.test(u.pathname)) return;
+      if (a.closest('.lang-dropdown, .drawer-lang, .footer-lang-grid')) return; // 言語切替は数えない
+      var where = a.getAttribute('data-cta');
+      for (var i = 0; !where && i < PLACES.length; i++) if (a.closest(PLACES[i][0])) where = PLACES[i][1];
+      window.gtag('event', 'sharehouse_contact_click', {
+        link_url: u.href,
+        link_text: (a.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 100),
+        page_path: location.pathname,
+        cta_location: where || 'other',
+        transport_type: 'beacon'
+      });
+    } catch (err) { /* 計測に失敗してもリンクはそのまま動く */ }
+  }, true);
+})();
