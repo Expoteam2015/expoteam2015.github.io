@@ -921,3 +921,35 @@ html:lang(ko) .philosophy h2 { font-family:'Apple SD Gothic Neo','Noto Sans KR',
 
 /* ===== <img> の width/height は読み込み中の場所取り用。表示サイズはCSSのまま（詳細度0なので既存ルールが常に優先） ===== */
 :where(img[width][height]) { height:auto; }
+
+/* ===== お部屋探しの人向けの問い合わせ導線（4言語共通：TOP・ハウス一覧・各ハウス・お問い合わせ・スタッフ募集） ===== */
+.room-cta-band { max-width:1160px; margin:0 auto; padding:2.5rem 2rem 0; }
+.room-cta { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem 1.75rem; background:var(--green-light); border-radius:var(--r-card); padding:1.4rem 1.6rem; }
+.room-cta-text { flex:1 1 22rem; min-width:0; }
+.room-cta-text .room-cta-title { font-family:var(--serif); font-weight:400; font-size:1.35rem; line-height:1.3; color:var(--ink); margin-bottom:0.25rem; }
+.room-cta-text p { color:var(--ink-soft); font-size:0.9rem; }
+.room-cta-text ul { list-style:none; margin-top:0.6rem; display:grid; gap:0.2rem; font-size:0.88rem; color:var(--ink-soft); }
+.room-cta-text li { display:flex; gap:0.45rem; align-items:baseline; }
+.room-cta-text li i { color:var(--green); font-size:0.95rem; flex-shrink:0; }
+.room-cta-btns { display:flex; flex-wrap:wrap; gap:0.6rem; }
+.room-cta-btns a { display:inline-flex; align-items:center; justify-content:center; gap:0.4rem; padding:0.7rem 1.25rem; border-radius:var(--r-btn); font-size:0.88rem; font-weight:500; border:1.5px solid var(--green); transition:background 0.2s,color 0.2s; }
+.room-cta-btns a.primary { background:var(--green); color:#fff; }
+.room-cta-btns a.primary:hover { background:var(--green-dark); border-color:var(--green-dark); }
+.room-cta-btns a.ghost { color:var(--green); background:var(--paper); }
+.room-cta-btns a.ghost:hover { background:var(--green); color:#fff; }
+.house-list-cta { margin:0 0 1.5rem; }
+.house-page-cta { margin-top:3rem; }
+.contact-tips { background:var(--paper-off); border-radius:var(--r-card); padding:1.1rem 1.25rem; margin:0 0 1rem; font-size:0.88rem; color:var(--ink-soft); }
+.contact-tips h2 { font-family:var(--sans); font-size:0.9rem; font-weight:500; color:var(--ink); margin:0 0 0.35rem; }
+.contact-tips h2:not(:first-child) { margin-top:0.9rem; }
+.contact-tips ul { list-style:none; display:grid; gap:0.2rem; }
+.contact-tips li { display:flex; gap:0.45rem; align-items:baseline; }
+.contact-tips li i { color:var(--green); flex-shrink:0; }
+.room-link { margin-top:2.5rem; text-align:center; font-size:0.88rem; color:var(--ink-muted); }
+.room-link a { color:var(--green); font-weight:500; display:inline-flex; align-items:center; gap:0.25rem; }
+.room-link a:hover { text-decoration:underline; }
+@media (max-width:640px){
+  .room-cta-band { padding:2rem 1.25rem 0; }
+  .room-cta { padding:1.2rem 1.1rem; }
+  .room-cta-btns, .room-cta-btns a { width:100%; }
+}
