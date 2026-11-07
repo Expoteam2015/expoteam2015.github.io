@@ -194,6 +194,7 @@ document.querySelectorAll('.lang-wrap').forEach(w => {
       var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
       if (!a || typeof window.gtag !== 'function') return;
       var u = new URL(a.getAttribute('href'), location.href);
+      if ((a.getAttribute('href') || '').charAt(0) === '#') return; // 同じページ内の移動（「フォームへ進む」など）は数えない
       if (u.origin !== location.origin || !CONTACT.test(u.pathname)) return;
       if (a.closest('.lang-dropdown, .drawer-lang, .footer-lang-grid')) return; // 言語切替は数えない
       var where = a.getAttribute('data-cta');
