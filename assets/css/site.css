@@ -973,3 +973,36 @@ html:lang(ko) .philosophy h2 { font-family:'Apple SD Gothic Neo','Noto Sans KR',
 @media (max-width:760px) { .compare-hint { display:block; } }
 /* ほかのハウス：家賃 */
 .other-rent { display:block; font-size:0.8rem; color:var(--ink-soft); margin-top:0.15rem; }
+/* TOPカードの家賃 */
+.house-rent { font-size:0.88rem; font-weight:600; color:var(--ink); margin-bottom:0.6rem; }
+/* TOP：スマホではハウスを早く見せる（要素を減らして余白は保つ・カードは大きい写真のまま横スワイプ） */
+@media (max-width:640px) {
+  .hero-grid { grid-template-columns:1fr; grid-template-rows:auto; padding:0; gap:0; background:none; }
+  .hero-cell-main { grid-column:1; grid-row:1; border-radius:0; }
+  .cta-banner { display:none; }
+  .hero-cell-2, .hero-cell-3, .hero-cell-4, .hero-cell-5 { display:none; }
+  .bubble-nav { grid-template-columns:repeat(3,1fr); gap:0.65rem; padding:1.5rem 1.25rem 0.5rem; }
+  .bubble-card { min-height:88px; border-width:1.5px; }
+  .bubble-card-bg { display:none; }
+  .bubble-card-text h3 { font-size:1.2rem; margin-bottom:0.3rem; }
+  .bubble-card-text span { font-size:0.72rem; }
+  .houses-section .houses-grid { display:flex; gap:1rem; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-left:1.25rem; margin:0 -1.25rem; padding:0.25rem 1.25rem 0.75rem; scrollbar-width:none; -webkit-overflow-scrolling:touch; }
+  .houses-section .houses-grid::-webkit-scrollbar { display:none; }
+  .houses-section .house-card { flex:0 0 80%; scroll-snap-align:start; display:flex; flex-direction:column; }
+  .houses-section .house-card-body { flex:1; display:flex; flex-direction:column; align-items:flex-start; padding:1.15rem 1.25rem 1.35rem; }
+  .houses-section .house-rent { font-size:0.95rem; margin-bottom:0.85rem; }
+  .houses-section .house-link { margin-top:auto; }
+}
+/* タブレット幅：ヒーローの文字が切れないよう内容に合わせて伸ばす */
+@media (min-width:641px) and (max-width:960px) {
+  .hero-grid { grid-template-rows:auto minmax(150px,auto) minmax(150px,auto); }
+  .hero-cell-main .slideshow { position:absolute; inset:0; }
+  .hero-cell-main .hero-overlay { position:relative; inset:auto; min-height:400px; padding:2.25rem 1.75rem 2.5rem; }
+}
+/* タブレット幅：メニューがロゴ・言語ボタンに重なる幅ではハンバーガーに切り替える */
+@media (min-width:641px) and (max-width:900px) {
+  .header-nav { display:none; }
+  .header-inner { justify-content:space-between; }
+  .hamburger { display:flex; margin-left:0.25rem; }
+  .mobile-drawer { display:block; top:68px; }
+}
